@@ -48,6 +48,31 @@ public class QueueController {
                 queueStatus.getUpdatedAt()
         );
     }
+    @PutMapping("/{locationId}")
+public QueueStatus updateQueueStatus(
+        @PathVariable Long locationId,
+        @RequestBody QueueUpdateRequest request) {
+
+    QueueStatus queueStatus = queueStatusRepository
+            .findByLocationId(locationId)
+            .orElseThrow(() -> new RuntimeException("Queue status not found"));
+
+    queueStatus.setPeopleWaiting(request.peopleWaiting());
+    queueStatus.setCurrentlyServing(request.currentlyServing());
+    queueStatus.setAverageServiceTime(request.averageServiceTime());
+
+    queueStatus.setUpdatedAt(
+            java.time.LocalDateTime.now()
+    );
+
+    return queueStatusRepository.save(queueStatus);
+}
+
+public record QueueUpdateRequest(
+        int peopleWaiting,
+        int currentlyServing,
+        double averageServiceTime
+) {}
 
     public record QueueResponse(
             int peopleWaiting,

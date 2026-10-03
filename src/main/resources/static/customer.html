@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NextQ — Live Queues</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="customer-page">
+
+
+<div class="customer-shell">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="customer-header">
+
+        <div class="customer-header-inner">
+
+
+            <a
+                href="/"
+                class="customer-brand"
+            >
+
+                <img
+                    src="nextq-logo.png"
+                    alt="NextQ logo"
+                    class="customer-logo"
+                >
+
+                <div>
+
+                    <div class="customer-brand-name">
+                        NextQ
+                    </div>
+
+                    <div class="customer-brand-tagline">
+                        Know the queue. Plan your time.
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <div class="customer-header-status">
+
+                <span class="customer-live-dot"></span>
+
+                Live queue data
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="customer-container">
+<a href="index.html" class="customer-back-home">
+    ← Back to Home
+</a>
+
+        <!-- =================================================
+             HOME / LOCATIONS
+             ================================================= -->
+
+        <section id="homeSection">
+
+
+            <div class="customer-hero">
+
+                <p class="customer-eyebrow">
+                    SMART QUEUE VISIBILITY
+                </p>
+
+                <h1>
+                    Check the queue.
+                    <span>Plan your visit.</span>
+                </h1>
+
+                <p>
+
+                    See current queue conditions,
+                    estimated waiting time and
+                    historical service insights
+                    before you go.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="customer-section-heading">
+
+                <div>
+
+                    <p class="customer-eyebrow">
+                        LOCATIONS
+                    </p>
+
+                    <h2>
+                        Choose a location
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                id="locationList"
+                class="customer-location-list"
+            >
+
+                <div class="customer-loading">
+                    Loading locations...
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUEUE SECTION
+             ================================================= -->
+
+        <section
+            id="queueSection"
+            class="hidden customer-queue-section"
+        >
+
+
+            <button
+                id="backButton"
+                class="customer-back-button"
+                type="button"
+            >
+
+                <span>←</span>
+
+                Back to locations
+
+            </button>
+
+
+
+            <!-- Location header -->
+
+            <div class="customer-queue-header">
+
+                <div>
+
+                    <p class="customer-eyebrow">
+                        CURRENT QUEUE
+                    </p>
+
+                    <h1 id="queueLocationName">
+                        Location
+                    </h1>
+
+                    <p id="queueLocationType">
+                        Location details
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="crowdBadge"
+                    class="customer-crowd-badge"
+                >
+                    LOW CROWD
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 WAIT CARD
+                 ================================================= -->
+
+            <div class="customer-wait-card">
+
+
+                <div class="customer-wait-top">
+
+                    <div>
+
+                        <p class="customer-wait-label">
+                            ESTIMATED WAIT
+                        </p>
+
+                        <p class="customer-wait-context">
+                            Based on current queue conditions
+                        </p>
+
+                    </div>
+
+
+                    <div class="customer-live-pill">
+
+                        <span></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="customer-wait-value">
+
+                    <span id="estimatedWait">
+                        0
+                    </span>
+
+                    <small>
+                        min
+                    </small>
+
+                </div>
+
+
+                <div class="customer-wait-footer">
+
+                    Estimated time based on the current queue
+                    and average service time.
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+                 ================================================= -->
+
+            <div class="customer-stats">
+
+
+                <div class="customer-stat-card">
+
+                    <div class="customer-stat-icon">
+                        #
+                    </div>
+
+                    <p>
+                        People waiting
+                    </p>
+
+                    <strong id="peopleWaiting">
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="customer-stat-card">
+
+                    <div class="customer-stat-icon">
+                        →
+                    </div>
+
+                    <p>
+                        Currently serving
+                    </p>
+
+                    <strong id="currentlyServing">
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="customer-stat-card">
+
+                    <div class="customer-stat-icon">
+                        ⏱
+                    </div>
+
+                    <p>
+                        Average service
+                    </p>
+
+                    <strong>
+
+                        <span id="averageService">
+                            0
+                        </span>
+
+                        <small>min</small>
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Updated time -->
+
+            <div class="customer-updated">
+
+                <span>
+
+                    <b>↻</b>
+
+                    Last updated
+
+                </span>
+
+                <strong id="updatedAt">
+                    --
+                </strong>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 INSIGHTS
+                 ================================================= -->
+
+            <div class="customer-section-heading">
+
+                <div>
+
+                    <p class="customer-eyebrow">
+                        INSIGHTS
+                    </p>
+
+                    <h2>
+                        Plan your visit
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="customer-insight-card">
+
+
+                <div class="customer-insight-header">
+
+                    <div>
+
+                        <p class="customer-insight-label">
+                            HISTORICAL INSIGHT
+                        </p>
+
+                        <h3>
+                            Best Time to Visit
+                        </h3>
+
+                        <p>
+                            Based on historical service activity
+                        </p>
+
+                    </div>
+
+
+                    <div class="customer-insight-icon">
+                        ✦
+                    </div>
+
+                </div>
+
+
+
+                <div class="customer-best-time">
+
+                    <span>
+                        SMART INSIGHT
+                    </span>
+
+                    <p id="bestTimeText">
+                        Analyzing historical service activity...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 HISTORY
+                 ================================================= -->
+
+            <div class="customer-section-heading customer-history-heading">
+
+                <div>
+
+                    <p class="customer-eyebrow">
+                        SERVICE HISTORY
+                    </p>
+
+                    <h2>
+                        Recent activity
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                id="historyList"
+                class="customer-history-list"
+            >
+
+                <div class="customer-loading">
+                    Loading historical data...
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="customer-footer">
+
+        <div class="customer-footer-brand">
+
+            <img
+                src="nextq-logo.png"
+                alt="NextQ"
+            >
+
+            <span>
+                NextQ
+            </span>
+
+        </div>
+
+
+        <span>
+            Know the queue. Plan your time.
+        </span>
+
+    </footer>
+
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

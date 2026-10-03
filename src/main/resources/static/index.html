@@ -1,120 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WaitWise</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>NextQ — Stop waiting blindly.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
-<body>
 
-<header class="header">
-    <div>
-        <h1>WaitWise</h1>
-        <p>Know before you go.</p>
-    </div>
-</header>
+<body class="landing-page">
 
-<main class="container">
+<div class="landing-shell">
 
-    <!-- Location Selection -->
-    <section id="homeSection">
 
-        <div class="hero">
-            <h2>Where are you going?</h2>
-            <p>
-                Check the current crowd and estimated waiting
-                time before you visit.
-            </p>
-        </div>
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
 
-        <section>
-            <h3>Available Services</h3>
+    <main>
 
-            <div id="locationList" class="location-list">
-                <p>Loading locations...</p>
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="landing-hero">
+
+
+            <!-- Background decorations -->
+
+            <div class="hero-glow hero-glow-one"></div>
+
+            <div class="hero-glow hero-glow-two"></div>
+
+            <div class="hero-grid"></div>
+
+
+
+            <!-- =================================================
+                 HERO CONTENT
+                 ================================================= -->
+
+            <div class="landing-hero-content">
+
+
+                <!-- =================================================
+                     BRAND
+                     ================================================= -->
+
+                <div class="hero-brand">
+
+                    <div class="hero-logo-wrap">
+
+                        <div class="hero-logo-ring"></div>
+
+                        <img
+                            src="nextq-logo.png"
+                            alt="NextQ"
+                            class="hero-logo"
+                        >
+
+                    </div>
+
+
+                    <div class="hero-brand-text">
+
+                        <div class="hero-brand-name">
+                            NextQ
+                        </div>
+
+                        <div class="hero-brand-tagline">
+                            Know the queue. Plan your time.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SMALL LABEL
+                     ================================================= -->
+
+                <div class="hero-kicker">
+
+                    <span></span>
+
+                    SMARTER WAY TO WAIT
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MAIN HEADING
+                     ================================================= -->
+
+                <h1>
+
+                    Stop waiting blindly.
+
+                    <span>
+                        Start planning smarter.
+                    </span>
+
+                </h1>
+
+
+
+                <!-- =================================================
+                     DESCRIPTION
+                     ================================================= -->
+
+                <p class="hero-description">
+
+                    NextQ gives you a clearer view of queues,
+                    estimated waiting times and historical
+                    service patterns — so you can make
+                    better decisions before you visit.
+
+                </p>
+
+
+
+                <!-- =================================================
+                     ACTIONS
+                     ================================================= -->
+
+                <div class="hero-actions">
+
+
+                    <!-- Customer -->
+
+                    <a
+                        href="/customer.html"
+                        class="hero-primary-button"
+                    >
+
+                        <span class="button-icon">
+                            ◉
+                        </span>
+
+                        Check Live Queues
+
+                        <span class="button-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- Staff -->
+
+                    <a
+                        href="/login.html"
+                        class="hero-secondary-button"
+                    >
+
+                        Staff Login
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FEATURES
+                     ================================================= -->
+
+                <div class="hero-features">
+
+
+                    <div class="hero-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        Live queue visibility
+
+                    </div>
+
+
+                    <div class="hero-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        Smart wait estimates
+
+                    </div>
+
+
+                    <div class="hero-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        Historical insights
+
+                    </div>
+
+
+                </div>
+
+
             </div>
+
+
+
+            <!-- =================================================
+                 PRODUCT PREVIEW
+                 ================================================= -->
+
+            <div class="hero-preview">
+
+
+                <div class="preview-window">
+
+
+                    <!-- Preview top bar -->
+
+                    <div class="preview-topbar">
+
+                        <div class="preview-dots">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <span>
+                            NEXTQ / LIVE
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- Preview content -->
+
+                    <div class="preview-content">
+
+
+                        <div class="preview-label">
+                            CURRENT QUEUE
+                        </div>
+
+
+                        <div class="preview-location">
+                            City Hospital
+                        </div>
+
+
+                        <div class="preview-meta">
+                            Hospital · MG Road
+                        </div>
+
+
+
+                        <!-- Wait -->
+
+                        <div class="preview-wait">
+
+                            <div>
+
+                                <div class="preview-small">
+                                    ESTIMATED WAIT
+                                </div>
+
+                                <strong>
+                                    42
+                                </strong>
+
+                                <span>
+                                    min
+                                </span>
+
+                            </div>
+
+
+                            <div class="preview-live">
+
+                                <span></span>
+
+                                LIVE
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Stats -->
+
+                        <div class="preview-stats">
+
+
+                            <div>
+
+                                <strong>
+                                    8
+                                </strong>
+
+                                <span>
+                                    Waiting
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    2
+                                </strong>
+
+                                <span>
+                                    Serving
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    6 min
+                                </strong>
+
+                                <span>
+                                    Avg. service
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- Insight -->
+
+                        <div class="preview-insight">
+
+                            <div class="preview-insight-icon">
+                                ✦
+                            </div>
+
+                            <div>
+
+                                <small>
+                                    HISTORICAL INSIGHT
+                                </small>
+
+                                <strong>
+                                    Evening has historically
+                                    shown faster service.
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOATING CARD 1
+                     ================================================= -->
+
+                <div class="floating-card floating-card-one">
+
+                    <span class="floating-icon">
+                        ↗
+                    </span>
+
+                    <div>
+
+                        <small>
+                            SMART INSIGHT
+                        </small>
+
+                        <strong>
+                            Plan before you go
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOATING CARD 2
+                     ================================================= -->
+
+                <div class="floating-card floating-card-two">
+
+                    <span class="floating-live"></span>
+
+                    <div>
+
+                        <small>
+                            LIVE STATUS
+                        </small>
+
+                        <strong>
+                            Queue updated
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
         </section>
 
-    </section>
 
 
-    <!-- Queue Details -->
-    <section id="queueSection" class="queue-section hidden">
+        <!-- =====================================================
+             PRODUCT STATEMENT
+             ===================================================== -->
 
-        <button id="backButton" class="back-button">
-            ← Back
-        </button>
+        <section class="landing-statement">
 
-        <div class="queue-header">
-            <h2 id="queueLocationName">City Hospital</h2>
-            <p id="queueLocationType">Hospital</p>
-        </div>
 
-        <div id="crowdBadge" class="crowd-badge">
-            MEDIUM CROWD
-        </div>
+            <div class="statement-line"></div>
 
-        <div class="wait-card">
 
-            <p class="wait-label">Estimated Waiting Time</p>
-
-            <div class="wait-time">
-                <span id="estimatedWait">96</span>
-                <span class="minutes">min</span>
-            </div>
-
-            <p class="wait-description">
-                Approximate time before you are served
+            <p class="statement-eyebrow">
+                ONE PLATFORM. TWO EXPERIENCES.
             </p>
 
-        </div>
 
-        <div class="stats-grid">
+            <h2>
 
-            <div class="stat-card">
-                <span class="stat-icon">👥</span>
-                <strong id="peopleWaiting">12</strong>
-                <p>People Waiting</p>
+                From waiting room to
+                <span>
+                    well-planned visit.
+                </span>
+
+            </h2>
+
+
+            <p class="statement-description">
+
+                Whether you're checking a queue before
+                leaving home or managing it from the
+                service desk, NextQ keeps the information
+                simple, visible and useful.
+
+            </p>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TWO EXPERIENCE CARDS
+             ===================================================== -->
+
+        <section class="experience-section">
+
+
+            <!-- Customer -->
+
+            <div class="experience-card customer-experience">
+
+
+                <div class="experience-number">
+                    01
+                </div>
+
+
+                <div class="experience-icon">
+                    ◉
+                </div>
+
+
+                <p class="experience-label">
+                    FOR VISITORS
+                </p>
+
+
+                <h3>
+
+                    Check before
+                    you go.
+
+                </h3>
+
+
+                <p>
+
+                    See current queue conditions,
+                    estimated waiting time and
+                    historical visit insights
+                    from one simple dashboard.
+
+                </p>
+
+
+                <a
+                    href="/customer.html"
+                    class="experience-link"
+                >
+
+                    Explore live queues
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
             </div>
 
-            <div class="stat-card">
-                <span class="stat-icon">🧑‍💼</span>
-                <strong id="currentlyServing">2</strong>
-                <p>Being Served</p>
+
+
+            <!-- Staff -->
+
+            <div class="experience-card staff-experience">
+
+
+                <div class="experience-number">
+                    02
+                </div>
+
+
+                <div class="experience-icon">
+                    ◆
+                </div>
+
+
+                <p class="experience-label">
+                    FOR STAFF
+                </p>
+
+
+                <h3>
+
+                    Keep the queue
+                    moving.
+
+                </h3>
+
+
+                <p>
+
+                    Update live queue conditions,
+                    record completed services and
+                    build the historical data that
+                    powers smarter insights.
+
+                </p>
+
+
+                <a
+                    href="/login.html"
+                    class="experience-link"
+                >
+
+                    Open staff portal
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
             </div>
 
-            <div class="stat-card">
-                <span class="stat-icon">⏱</span>
-                <strong id="averageService">8</strong>
-                <p>Min / Person</p>
-            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="landing-footer">
+
+
+        <div class="landing-footer-brand">
+
+            <img
+                src="nextq-logo.png"
+                alt="NextQ"
+            >
+
+            <span>
+                NextQ
+            </span>
 
         </div>
 
-        <div class="updated-card">
-            <span>Last updated</span>
-            <strong id="updatedAt">Just now</strong>
-        </div>
-<div class="insights-card">
-    <h3>Crowd Insights</h3>
 
-    <p class="insights-description">
-        Recent service activity for this location
-    </p>
+        <p>
+            Know the queue. Plan your time.
+        </p>
 
-    <div id="historyList" class="history-list">
-        <p>Loading insights...</p>
-    </div>
+
+        <span>
+            © 2026 NextQ
+        </span>
+
+
+    </footer>
+
+
 </div>
-    </section>
 
-</main>
-
-<script src="app.js"></script>
 
 </body>
 </html>

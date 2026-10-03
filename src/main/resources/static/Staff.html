@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NextQ — Staff Portal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="nextq-dark-page">
+
+<div class="nextq-dark-shell">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="nextq-dark-header">
+
+        <a
+            href="/"
+            class="nextq-dark-brand"
+        >
+
+            <img
+                src="nextq-logo.png"
+                alt="NextQ logo"
+                class="nextq-dark-logo"
+            >
+
+            <div class="nextq-dark-brand-text">
+
+                <div class="nextq-dark-brand-name">
+                    NextQ
+                </div>
+
+                <div class="nextq-dark-brand-tagline">
+                    Staff Portal
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <div class="staff-header-actions">
+
+            <div class="nextq-dark-status">
+
+                <span class="nextq-status-dot"></span>
+
+                Staff access
+
+            </div>
+
+
+            <button
+                id="logoutButton"
+                class="nextq-logout-button"
+                type="button"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="nextq-staff-main">
+
+
+        <!-- INTRO -->
+
+        <section class="nextq-staff-intro">
+
+            <p class="nextq-eyebrow">
+                STAFF DASHBOARD
+            </p>
+
+            <h1>
+                Manage the queue.
+            </h1>
+
+            <p>
+                Keep live queue information accurate
+                and build better service insights.
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= LOCATION / QUEUE ================= -->
+
+        <section class="staff-card">
+
+            <div class="staff-card-header">
+
+                <div class="staff-card-icon">
+                    Q
+                </div>
+
+                <div>
+
+                    <h3>
+                        Queue Management
+                    </h3>
+
+                    <p>
+                        Update the current queue information
+                        for a location.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="form-group">
+
+                <label for="locationSelect">
+                    Location
+                </label>
+
+                <select id="locationSelect">
+
+                    <option value="">
+                        Select a location
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUEUE INPUTS -->
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="peopleWaiting">
+                        People Waiting
+                    </label>
+
+                    <input
+                        id="peopleWaiting"
+                        type="number"
+                        min="0"
+                        placeholder="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="currentlyServing">
+                        Currently Serving
+                    </label>
+
+                    <input
+                        id="currentlyServing"
+                        type="number"
+                        min="0"
+                        placeholder="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="averageServiceTime">
+                        Average Service Time
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            id="averageServiceTime"
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder="0"
+                        >
+
+                        <span>
+                            min
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- UPDATE BUTTON -->
+
+            <button
+                id="updateQueueButton"
+                class="staff-update-button"
+                type="button"
+            >
+
+                Update Queue
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+            <div
+                id="queueUpdateMessage"
+                class="update-message hidden"
+            ></div>
+
+
+            <div class="staff-note">
+
+                <span>i</span>
+
+                <p>
+                    Updating these values changes the live queue
+                    information shown to customers.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SERVICE HISTORY ================= -->
+
+        <section class="staff-card">
+
+
+            <div class="staff-card-header">
+
+                <div class="staff-card-icon">
+                    ↗
+                </div>
+
+                <div>
+
+                    <h3>
+                        Service History
+                    </h3>
+
+                    <p>
+                        Record completed services to build
+                        historical service insights.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXISTING HISTORY -->
+
+            <div class="service-history-section">
+
+                <div class="service-history-heading">
+
+                    <span>
+                        Recent Records
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="historyList"
+                    class="staff-history-list"
+                >
+
+                    <p class="empty-history">
+                        Select a location to view history.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="service-divider"></div>
+
+
+
+            <!-- RECORD SERVICE -->
+
+            <div class="service-record-section">
+
+                <div class="service-record-header">
+
+                    <div class="service-record-icon">
+                        +
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Record Completed Service
+                        </h4>
+
+                        <p>
+                            Add a completed service record
+                            for the selected location.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="peopleServed">
+                            People Served
+                        </label>
+
+                        <input
+                            id="peopleServed"
+                            type="number"
+                            min="1"
+                            placeholder="e.g. 5"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="serviceDuration">
+                            Service Duration
+                        </label>
+
+                        <div class="input-with-unit">
+
+                            <input
+                                id="serviceDuration"
+                                type="number"
+                                min="0"
+                                step="0.1"
+                                placeholder="e.g. 25"
+                            >
+
+                            <span>
+                                min
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="recordServiceButton"
+                    class="record-service-button"
+                    type="button"
+                >
+
+                    Record Service
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div
+                    id="serviceMessage"
+                    class="update-message hidden"
+                ></div>
+
+            </div>
+
+
+            <div class="staff-note">
+
+                <span>i</span>
+
+                <p>
+                    Service records are stored as historical data
+                    and can be used for future service-pattern analysis.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DEMO INFORMATION ================= -->
+
+        <section class="staff-card staff-info-card">
+
+            <div class="staff-info-grid">
+
+                <div>
+
+                    <span class="info-label">
+                        LIVE DATA
+                    </span>
+
+                    <strong>
+                        Queue status
+                    </strong>
+
+                    <p>
+                        Customer-facing queue information
+                        updates from the values maintained here.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span class="info-label">
+                        INSIGHTS
+                    </span>
+
+                    <strong>
+                        Service history
+                    </strong>
+
+                    <p>
+                        Recorded service activity provides
+                        historical data for NextQ insights.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="nextq-dark-footer">
+
+        <span>
+            NextQ · Staff Portal
+        </span>
+
+        <span>
+            Manage smarter. Serve better.
+        </span>
+
+    </footer>
+
+</div>
+
+
+
+<!-- ================= STAFF SCRIPT ================= -->
+
+<script>
+
+
+/* =========================================
+   AUTHENTICATION PROTECTION
+========================================= */
+
+const isStaffLoggedIn =
+    sessionStorage.getItem(
+        "nextqStaffLoggedIn"
+    );
+
+
+if (isStaffLoggedIn !== "true") {
+
+    window.location.href =
+        "/login.html";
+
+}
+
+
+
+/* =========================================
+   DOM ELEMENTS
+========================================= */
+
+const locationSelect =
+    document.getElementById(
+        "locationSelect"
+    );
+
+
+const peopleWaitingInput =
+    document.getElementById(
+        "peopleWaiting"
+    );
+
+
+const currentlyServingInput =
+    document.getElementById(
+        "currentlyServing"
+    );
+
+
+const averageServiceTimeInput =
+    document.getElementById(
+        "averageServiceTime"
+    );
+
+
+const updateQueueButton =
+    document.getElementById(
+        "updateQueueButton"
+    );
+
+
+const queueUpdateMessage =
+    document.getElementById(
+        "queueUpdateMessage"
+    );
+
+
+const historyList =
+    document.getElementById(
+        "historyList"
+    );
+
+
+const peopleServedInput =
+    document.getElementById(
+        "peopleServed"
+    );
+
+
+const serviceDurationInput =
+    document.getElementById(
+        "serviceDuration"
+    );
+
+
+const recordServiceButton =
+    document.getElementById(
+        "recordServiceButton"
+    );
+
+
+const serviceMessage =
+    document.getElementById(
+        "serviceMessage"
+    );
+
+
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
+
+
+
+let locations = [];
+
+
+
+/* =========================================
+   LOAD LOCATIONS
+========================================= */
+
+async function loadLocations() {
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/locations"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Failed to load locations"
+            );
+
+        }
+
+
+        locations =
+            await response.json();
+
+
+        locationSelect.innerHTML =
+            '<option value="">Select a location</option>';
+
+
+        locations.forEach(location => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                location.id;
+
+            option.textContent =
+                location.name;
+
+            locationSelect.appendChild(
+                option
+            );
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        locationSelect.innerHTML =
+            '<option value="">Unable to load locations</option>';
+
+    }
+
+}
+
+
+
+/* =========================================
+   LOAD QUEUE STATUS
+========================================= */
+
+async function loadQueueStatus(locationId) {
+
+    if (!locationId) {
+
+        peopleWaitingInput.value = "";
+        currentlyServingInput.value = "";
+        averageServiceTimeInput.value = "";
+
+        historyList.innerHTML =
+            '<p class="empty-history">Select a location to view history.</p>';
+
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/queue/${locationId}`
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Failed to load queue status"
+            );
+
+        }
+
+
+        const queue =
+            await response.json();
+
+
+        peopleWaitingInput.value =
+            queue.peopleWaiting;
+
+
+        currentlyServingInput.value =
+            queue.currentlyServing;
+
+
+        averageServiceTimeInput.value =
+            queue.averageServiceTime;
+
+
+        await loadHistory(locationId);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        queueUpdateMessage.textContent =
+            "Unable to load queue information.";
+
+        queueUpdateMessage.className =
+            "update-message error";
+
+    }
+
+}
+
+
+
+/* =========================================
+   LOCATION CHANGE
+========================================= */
+
+locationSelect.addEventListener(
+    "change",
+    () => {
+
+        const locationId =
+            locationSelect.value;
+
+        loadQueueStatus(locationId);
+
+    }
+);
+
+
+
+/* =========================================
+   UPDATE QUEUE
+========================================= */
+
+updateQueueButton.addEventListener(
+    "click",
+    async () => {
+
+        const locationId =
+            locationSelect.value;
+
+
+        if (!locationId) {
+
+            queueUpdateMessage.textContent =
+                "Please select a location.";
+
+            queueUpdateMessage.className =
+                "update-message error";
+
+            return;
+        }
+
+
+        const peopleWaiting =
+            Number(
+                peopleWaitingInput.value
+            );
+
+
+        const currentlyServing =
+            Number(
+                currentlyServingInput.value
+            );
+
+
+        const averageServiceTime =
+            Number(
+                averageServiceTimeInput.value
+            );
+
+
+        if (
+            peopleWaiting < 0 ||
+            currentlyServing < 0 ||
+            averageServiceTime < 0 ||
+            !Number.isFinite(peopleWaiting) ||
+            !Number.isFinite(currentlyServing) ||
+            !Number.isFinite(averageServiceTime)
+        ) {
+
+            queueUpdateMessage.textContent =
+                "Please enter valid queue values.";
+
+            queueUpdateMessage.className =
+                "update-message error";
+
+            return;
+        }
+
+
+        queueUpdateMessage.textContent =
+            "Updating queue...";
+
+        queueUpdateMessage.className =
+            "update-message";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `/api/queue/${locationId}`,
+                    {
+                        method: "PUT",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            peopleWaiting:
+                                peopleWaiting,
+
+                            currentlyServing:
+                                currentlyServing,
+
+                            averageServiceTime:
+                                averageServiceTime
+
+                        })
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Failed to update queue"
+                );
+
+            }
+
+
+            await response.json();
+
+
+            queueUpdateMessage.textContent =
+                "Queue information updated successfully.";
+
+            queueUpdateMessage.className =
+                "update-message success";
+
+
+            await loadQueueStatus(
+                locationId
+            );
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            queueUpdateMessage.textContent =
+                "Unable to update queue information.";
+
+            queueUpdateMessage.className =
+                "update-message error";
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   LOAD SERVICE HISTORY
+========================================= */
+
+async function loadHistory(locationId) {
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/history/${locationId}`
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Failed to load service history"
+            );
+
+        }
+
+
+        const history =
+            await response.json();
+
+
+        historyList.innerHTML = "";
+
+
+        if (
+            !history ||
+            history.length === 0
+        ) {
+
+            historyList.innerHTML =
+                '<p class="empty-history">No service history available.</p>';
+
+            return;
+        }
+
+
+        // Show newest records first
+        history
+            .slice()
+            .reverse()
+            .forEach(record => {
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "staff-history-item";
+
+
+                const date =
+                    formatHistoryDate(
+                        record.servedAt
+                    );
+
+
+                item.innerHTML = `
+
+                    <div class="history-record-main">
+
+                        <strong>
+                            ${record.peopleServed} people served
+                        </strong>
+
+                        <span>
+                            ${date}
+                        </span>
+
+                    </div>
+
+                    <div class="history-record-duration">
+                        ${record.serviceDuration} min
+                    </div>
+
+                `;
+
+
+                historyList.appendChild(
+                    item
+                );
+
+            });
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        historyList.innerHTML =
+            '<p class="empty-history">Unable to load service history.</p>';
+
+    }
+
+}
+
+
+
+/* =========================================
+   RECORD SERVICE
+========================================= */
+
+recordServiceButton.addEventListener(
+    "click",
+    async () => {
+
+        const locationId =
+            locationSelect.value;
+
+
+        if (!locationId) {
+
+            serviceMessage.textContent =
+                "Please select a location.";
+
+            serviceMessage.className =
+                "update-message error";
+
+            return;
+        }
+
+
+        const peopleServed =
+            Number(
+                peopleServedInput.value
+            );
+
+
+        const serviceDuration =
+            Number(
+                serviceDurationInput.value
+            );
+
+
+        if (
+            peopleServed <= 0 ||
+            serviceDuration < 0 ||
+            !Number.isFinite(peopleServed) ||
+            !Number.isFinite(serviceDuration)
+        ) {
+
+            serviceMessage.textContent =
+                "Please enter valid service details.";
+
+            serviceMessage.className =
+                "update-message error";
+
+            return;
+        }
+
+
+        serviceMessage.textContent =
+            "Recording service...";
+
+        serviceMessage.className =
+            "update-message";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `/api/history/${locationId}`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            peopleServed:
+                                peopleServed,
+
+                            serviceDuration:
+                                serviceDuration
+
+                        })
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Failed to record service"
+                );
+
+            }
+
+
+            await response.json();
+
+
+            serviceMessage.textContent =
+                "Service record added successfully.";
+
+            serviceMessage.className =
+                "update-message success";
+
+
+            peopleServedInput.value =
+                "";
+
+            serviceDurationInput.value =
+                "";
+
+
+            await loadHistory(
+                locationId
+            );
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            serviceMessage.textContent =
+                "Unable to record service.";
+
+            serviceMessage.className =
+                "update-message error";
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+logoutButton.addEventListener(
+    "click",
+    () => {
+
+        sessionStorage.removeItem(
+            "nextqStaffLoggedIn"
+        );
+
+        window.location.href =
+            "/login.html";
+
+    }
+);
+
+
+
+/* =========================================
+   DATE FORMATTER
+========================================= */
+
+function formatHistoryDate(timestamp) {
+
+    const date =
+        new Date(timestamp);
+
+
+    return date.toLocaleString(
+        [],
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   INITIAL LOAD
+========================================= */
+
+loadLocations();
+
+</script>
+
+</body>
+</html>
