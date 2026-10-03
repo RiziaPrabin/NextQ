@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WaitWise</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div>
+        <h1>WaitWise</h1>
+        <p>Know before you go.</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- Location Selection -->
+    <section id="homeSection">
+
+        <div class="hero">
+            <h2>Where are you going?</h2>
+            <p>
+                Check the current crowd and estimated waiting
+                time before you visit.
+            </p>
+        </div>
+
+        <section>
+            <h3>Available Services</h3>
+
+            <div id="locationList" class="location-list">
+                <p>Loading locations...</p>
+            </div>
+        </section>
+
+    </section>
+
+
+    <!-- Queue Details -->
+    <section id="queueSection" class="queue-section hidden">
+
+        <button id="backButton" class="back-button">
+            ← Back
+        </button>
+
+        <div class="queue-header">
+            <h2 id="queueLocationName">City Hospital</h2>
+            <p id="queueLocationType">Hospital</p>
+        </div>
+
+        <div id="crowdBadge" class="crowd-badge">
+            MEDIUM CROWD
+        </div>
+
+        <div class="wait-card">
+
+            <p class="wait-label">Estimated Waiting Time</p>
+
+            <div class="wait-time">
+                <span id="estimatedWait">96</span>
+                <span class="minutes">min</span>
+            </div>
+
+            <p class="wait-description">
+                Approximate time before you are served
+            </p>
+
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <span class="stat-icon">👥</span>
+                <strong id="peopleWaiting">12</strong>
+                <p>People Waiting</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">🧑‍💼</span>
+                <strong id="currentlyServing">2</strong>
+                <p>Being Served</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">⏱</span>
+                <strong id="averageService">8</strong>
+                <p>Min / Person</p>
+            </div>
+
+        </div>
+
+        <div class="updated-card">
+            <span>Last updated</span>
+            <strong id="updatedAt">Just now</strong>
+        </div>
+<div class="insights-card">
+    <h3>Crowd Insights</h3>
+
+    <p class="insights-description">
+        Recent service activity for this location
+    </p>
+
+    <div id="historyList" class="history-list">
+        <p>Loading insights...</p>
+    </div>
+</div>
+    </section>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>
