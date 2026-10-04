@@ -2234,40 +2234,41 @@ button {
 }
 
 /* Estimated Wait — same gradient as Check Live Queues button */
+/* =========================================================
+   CUSTOMER — SMOOTH FLOW-UP ANIMATION
+   ========================================================= */
 
-.customer-wait-card {
-    background: linear-gradient(135deg, #00d9ff, #6366ff);
-    border: none;
-    box-shadow: 0 15px 40px rgba(65, 100, 255, 0.20);
+.customer-location-list .location-card {
+    animation: cardFlowUp 0.7s ease-out both;
 }
 
-.customer-wait-value span {
-    color: #ffffff;
+/* Each card enters slightly after the previous one */
+.customer-location-list .location-card:nth-child(1) {
+    animation-delay: 0.05s;
 }
 
-.customer-wait-value small {
-    color: rgba(255, 255, 255, 0.85);
+.customer-location-list .location-card:nth-child(2) {
+    animation-delay: 0.15s;
 }
 
-.customer-wait-label {
-    color: #ffffff;
+.customer-location-list .location-card:nth-child(3) {
+    animation-delay: 0.25s;
 }
 
-.customer-wait-context {
-    color: rgba(255, 255, 255, 0.85);
+.customer-location-list .location-card:nth-child(4) {
+    animation-delay: 0.35s;
 }
 
-.customer-wait-footer {
-    color: rgba(255, 255, 255, 0.8);
-}
+@keyframes cardFlowUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
 
-.customer-live-pill {
-    background: rgba(255, 255, 255, 0.16);
-    color: #ffffff;
-}
-
-.customer-live-pill span {
-    background: #ffffff;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 /* =========================================================
    BACK TO HOME
@@ -2302,4 +2303,359 @@ button {
 /* Customer spacing */
 .customer-back-home {
     margin-bottom: 28px;
+}
+
+/* Estimated Wait card entrance animation */
+
+.customer-wait-card {
+    animation: flowUp 0.7s ease-out;
+}
+
+@keyframes flowUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =========================================================
+   CUSTOMER — ESTIMATED WAIT CARD
+   ========================================================= */
+
+.customer-wait-card {
+    position: relative;
+    overflow: hidden;
+
+    padding: 26px;
+    border: none;
+    border-radius: 21px;
+
+    /* SAME GRADIENT AS THE CHECK LIVE QUEUES BUTTON */
+    background: linear-gradient(
+        135deg,
+        #00d9ff,
+        #6366ff
+    );
+
+    box-shadow: 0 15px 40px rgba(65, 100, 255, 0.20);
+
+    /* Flow-up entrance animation */
+    animation: waitCardFlowUp 0.7s ease-out both;
+}
+
+@keyframes waitCardFlowUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------- Wait card text ---------- */
+
+.customer-wait-value span {
+    color: #ffffff;
+}
+
+.customer-wait-value small {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.customer-wait-label {
+    color: #ffffff;
+}
+
+.customer-wait-context {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.customer-wait-footer {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* ---------- Live pill ---------- */
+
+.customer-live-pill {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+.customer-live-pill span {
+    background: #ffffff;
+}
+/* =========================================================
+   NEXTQ HOMEPAGE — MODERN ENTRANCE ANIMATIONS
+   ========================================================= */
+
+
+/* ---------- Hero title ---------- */
+
+.hero-title {
+    margin-top: 16px;
+}
+
+.typing-line {
+    display: block;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    border-right: 2px solid transparent;
+}
+
+
+/* First line */
+
+.typing-line-one {
+    animation:
+        typingFirst 1.4s steps(22, end) 0.65s forwards,
+        cursorFirst 0.75s step-end 0.65s 2;
+}
+
+
+/* Second gradient line */
+
+.typing-line-two {
+    background: linear-gradient(
+        90deg,
+        #00e5ff,
+        #6d6cff,
+        #b25cff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        typingSecond 1.7s steps(27, end) 2.05s forwards,
+        cursorSecond 0.75s step-end 2.05s 2;
+}
+
+
+/* ---------- Typing animations ---------- */
+
+@keyframes typingFirst {
+    from {
+        width: 0;
+        opacity: 1;
+        border-right-color: #00d9ff;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+        border-right-color: transparent;
+    }
+}
+
+@keyframes typingSecond {
+    from {
+        width: 0;
+        opacity: 1;
+        border-right-color: #756aff;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+        border-right-color: transparent;
+    }
+}
+
+@keyframes cursorFirst {
+    0%,
+    100% {
+        border-right-color: transparent;
+    }
+
+    50% {
+        border-right-color: #00d9ff;
+    }
+}
+
+@keyframes cursorSecond {
+    0%,
+    100% {
+        border-right-color: transparent;
+    }
+
+    50% {
+        border-right-color: #756aff;
+    }
+}
+
+
+/* =========================================================
+   HERO ELEMENTS — FLOW IN
+   ========================================================= */
+
+.hero-brand {
+    animation: heroFlowUp 0.7s ease-out 0.05s both;
+}
+
+.hero-kicker {
+    animation: heroFlowUp 0.7s ease-out 0.45s both;
+}
+
+.hero-description {
+    opacity: 0;
+    animation: heroFlowUp 0.7s ease-out 3.75s forwards;
+}
+
+.hero-actions {
+    opacity: 0;
+    animation: heroFlowUp 0.7s ease-out 4.05s forwards;
+}
+
+.hero-features {
+    opacity: 0;
+    animation: heroFlowUp 0.7s ease-out 4.3s forwards;
+}
+
+
+/* Right preview */
+
+.hero-preview {
+    opacity: 0;
+    animation: heroPreviewIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+
+/* ---------- Main flow-up ---------- */
+
+@keyframes heroFlowUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------- Preview entrance ---------- */
+
+@keyframes heroPreviewIn {
+    from {
+        opacity: 0;
+        transform: translateX(45px) translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+
+/* =========================================================
+   HERO PREVIEW — SUBTLE FLOAT
+   ========================================================= */
+
+.preview-window {
+    animation: previewFloat 5s ease-in-out 1.5s infinite;
+}
+
+@keyframes previewFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================================================
+   LOWER HOMEPAGE SECTIONS
+   ========================================================= */
+
+.landing-statement {
+    animation: sectionReveal 0.8s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+}
+
+.experience-section {
+    animation: sectionReveal 0.8s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+}
+
+.landing-footer {
+    animation: sectionReveal 0.7s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 25%;
+}
+
+@keyframes sectionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   EXPERIENCE CARDS — STAGGER
+   ========================================================= */
+
+.experience-card:first-child {
+    animation: cardReveal 0.7s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+}
+
+.experience-card:last-child {
+    animation: cardReveal 0.7s ease-out 0.12s both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPECT REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
 }
